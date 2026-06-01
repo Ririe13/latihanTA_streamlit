@@ -5,7 +5,7 @@ from pathlib import Path
 import streamlit as st
 
 
-st.set_page_config(page_title="Sistem Klasifikasi Buku Perpustakaan Otomatis", layout="centered")
+st.set_page_config(page_title="Sistem Klasifikasi Buku Perpustakaan Otomatis", layout="wide")
 
 st.markdown(
     """
@@ -38,16 +38,26 @@ st.markdown(
     }
 
     .block-container {
-        max-width: 930px;
-        padding-top: 0.5rem;
+        max-width: 100% !important;
+        padding-top: 0rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
         padding-bottom: 1.2rem;
+    }
+
+    .topbar-bleed {
+        width: calc(100vw - 0px);
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+        margin-top: -0.99rem;
+        margin-bottom: 2.15rem;
     }
 
     .topbar {
         position: sticky;
         top: 0;
         z-index: 20;
-        margin: -0.5rem -1rem 2.3rem;
+        margin: 0;
         padding: 1rem 1.4rem;
         background: var(--brand);
         color: white;
@@ -55,7 +65,8 @@ st.markdown(
         align-items: center;
         gap: 0.9rem;
         box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
-        width: calc(100% + 2rem);
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .topbar-logo {
@@ -231,9 +242,11 @@ logo_b64 = base64.b64encode(logo_path.read_bytes()).decode("utf-8") if logo_path
 
 st.markdown(
     f"""
-    <div class="topbar">
-        <img class="topbar-logo" src="data:image/png;base64,{logo_b64}" alt="Poliwangi logo" />
-        <div class="topbar-title">Politeknik Negeri Banyuwangi</div>
+    <div class="topbar-bleed">
+        <div class="topbar">
+            <img class="topbar-logo" src="data:image/png;base64,{logo_b64}" alt="Poliwangi logo" />
+            <div class="topbar-title">Politeknik Negeri Banyuwangi</div>
+        </div>
     </div>
     """,
     unsafe_allow_html=True,
