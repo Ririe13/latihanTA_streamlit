@@ -20,8 +20,8 @@ from preprocessing import preprocess
 
 @st.cache_resource
 def load_models():
-    tfrf_model  = joblib.load("models/tf_rf_model.pkl")
-    svm_model   = joblib.load("models/model_LinearSVC.pkl")
+    tfrf_model  = joblib.load("models/tfrf_model.pkl")
+    svm_model   = joblib.load("models/svm_model.pkl")
     return tfrf_model, svm_model
 
 tfrf_model, svm_model = load_models()
